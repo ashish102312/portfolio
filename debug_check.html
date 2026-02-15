@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Image Debug</title>
+    <style>
+        img {
+            border: 2px solid red;
+            margin: 10px;
+            display: block;
+            max-width: 300px;
+        }
+
+        .success {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Image Path Debugging</h1>
+    <p>Location: <span id="loc"></span></p>
+
+    <h2>1. Relative Path: "images/cu_network_cert.jpg"</h2>
+    <img src="images/cu_network_cert.jpg" onload="this.classList.add('success')"
+        onerror="this.classList.add('failure')">
+
+    <h2>2. Absolute Path: "/portfolio/images/cu_network_cert.jpg"</h2>
+    <img src="/portfolio/images/cu_network_cert.jpg" onload="this.classList.add('success')"
+        onerror="this.classList.add('failure')">
+
+    <h2>3. Explicit Relative: "./images/cu_network_cert.jpg"</h2>
+    <img src="./images/cu_network_cert.jpg" onload="this.classList.add('success')"
+        onerror="this.classList.add('failure')">
+
+    <h2>4. Up-Level Relative: "../portfolio/images/cu_network_cert.jpg"</h2>
+    <img src="../portfolio/images/cu_network_cert.jpg" onload="this.classList.add('success')"
+        onerror="this.classList.add('failure')">
+
+    <script>
+        document.getElementById('loc').textContent = window.location.href;
+    </script>
+</body>
+
+</html>
